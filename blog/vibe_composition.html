@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nectomire: The Vibe Composition Triangle</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1> <a href="index.html" style="text-decoration:none; color:#000000">nectomire [blog] </a></h1>
+    <h2>The Vibe Composition Triangle: A New Personality Categorization Method</h2>
+
+    <p>2024.12.07</p>
+    <p>During the 2008-ish Twilight phenomenon, I found the vampire-to-werewolf spectrum useful to loosely describe the 'vibe' people give off. Vampires are calculated, reliable, even-keeled, intelligent. Werewolves are passionate, chaotic, romantic, community-oriented. 
+    
+      In the post-<i>Twilight</i> years, though, I have found that there are friends in my life whose essence is not captured by the limited set of attributes possessed by either a vampire or a werewolf. Instead, there is a charisma, a chillness, a laid-back attitude that necessitates a third dimension in the spectrum (spectra?). </p>
+      
+    <p>Enter the <b>cowboy</b>. I'm going to use "cowboy" as an agendered term, because "cow-people" sounds like an bovinomorphic nightmare. Cowboys possess that third category of traits that round out the intensity of the other two categories: whimsy, comfort, charisma, coolness, and unreliability.</p>
+    
+    <div class="triangle-images">
+    <img src="/images/blog_posts/vibe_composition/vampires_description.png">
+    <img src="/images/blog_posts/vibe_composition/werewolves_description.png">
+    <img src="/images/blog_posts/vibe_composition/cowboys_description.png"> 
+    </div>
+    
+    <h3>Formalizing the Vampire-Werewolf-Cowboy Vibe Composition Categorization</h3>
+     
+    <p>I have been using this three dimensional categorization casually for a few months to much success: Is your new boyfriend passionate but calculated? That's so classic werewolfy vampire of him. Your mom gets along better with strangers than your siblings and is always late but consistently the life of the party? Pure cowboy. </p>
+    
+    <p> Recently, I decided to formalize the vibe composition methodology, and attempt to explicitly categorize the people in my life using a list of personality traits. Using the three archetypes, we can break down a person's personality into percentages of vampire, werewolf, and cowboy. Because the categorization is in three dimensions adding up to 100%, that means that we can represent the categorizations in a <b>ternary</b> plot, with each corner capturing the 'purest' of each type, and combinations of traits categorized as 16 different 'vibe compositions'. This methodology was heavily inspired by the USDA's <a href="https://www.nrcs.usda.gov/resources/education-and-teaching-materials/soil-texture-calculator">soil texture triangle</a>.</p> 
+    
+    <div class="image-row two-images">  
+    <img src="/images/blog_posts/vibe_composition/vc_drawn.png">  
+    <img src="/images/blog_posts/vibe_composition/vibe_triangle.png">
+    </div>  
+    
+    <p>The core compoents of each archetype were broken into 18 personality statements, including: </p>
+    <ul> 
+      <li> "I am strategic about the way I manage and prioritize my social relationships" (Vampire characteristic)</li>
+      <li> "I value loyalty to others above my own individual needs" (Werewolf characteristic) </li>
+      <li>"I often enjoy 'winging it' over preparing for new experiences" (Cowboy characteristic)</li>
+    </ul>
+  
+  <p>I gave a survey to 28 friends and asked them to rate their agreement with each statement from 1-5. The full list of questions and logic can be found in the <a href="https://github.com/nectomire/vibe_composition_triangle">GitHub repoistory.</a> Initially, I related the responses 1-5 linearly with the total percentage of each component of a person. While I do think it's possible that this methodology <i>could</i> result in a "pure" vampire/werewolf/cowboy categorization, it meant that most relatively balanced people were grouped around the full "Hybrid" classification, which is both no fun, and also not a useful way to use the categorization in conversation as I had been up to this point:</p>
+  
+  <img src="/images/blog_posts/vibe_composition/vibe_triangle_linear.png" width="60%">
+  
+  <p>Using some known vibes of those close to me, I instead "calibrated" (a term used very loosely in this post) the vibe composition model by changing the weights of the strength of responses. This had the intended effect of spreading out the respondents across the triangle, and meant that now, a "strong" 4 or 5 response to a question is weighted disproportionately compared to a "weak" 2 or 3 response. Out of either desparation to make this formalization of the system work or genuine logic, I am justifying this by claiming that a person who has otherwise balanced traits but one or two strong vampire, werewolf, or cowboy traits should be pulled strongly towards that corner of the ternary. For example: A person who is relatively passionate and decently chill, but aggressively organized and methodical in their personal life should be considered largely vampirey, despite having some small characteristics of the other archetypes:</p>
+
+  <img src="/images/blog_posts/vibe_composition/vibe_triangle_nonlinear.png" width="60%">
+      
+  <p>The feedback I recieved on this version of the categorization was largely positive. The categories assigned did seem to resonate with the respondents. I would consider this a success, were it not for one secondary finding...</p>
+  
+  <h3>Survey limitations </h3>
+  
+  <p>I will stand by my system as a vibe tool and casual bit of fun. There are limitations when it comes to formalizing the logic through a self-reported survey, which became very apparent when I performed a Principal Component Analysis (PCA) on the survey responses. I initially did this to see who had answered similarly and what non-vampire-related groupings could be identified, but the 1D PCA showed that along the direction of highest variance there was a significant outlier: me. I'm not a social scientist nor am I an expert in survey design, but I'm confident that if the person who wrote the survey is the largest outlier, it means that the survey prompts were likely not interpreted the way they were intended:</p>
+      
+    <img src="/images/blog_posts/vibe_composition/PCA_1D.png" width="60%">
+    
+  <p>Were I to further attempt to formalize the vibe composition triangle logic, I would spend more time refining survey prompts and testing different phrasing of questions to see the impact on categorization.</p>
+  <p>But since a side effect of this project has been learning how few cowboy characteristics I have, I'm going to take a chill page out of my cowboy-y friends' books, and just let it go. *</p>  
+      
+    <br>
+    <br>
+    <p>t h e n e c t o m i r e r [at] p r o t o n m a i l [dot] c o m 
+    
+
+
+  </body>
+</html>
