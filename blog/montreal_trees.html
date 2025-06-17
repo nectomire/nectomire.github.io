@@ -3,24 +3,40 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nectomire: nightbike </title>
+    <title>nectomire: Montreal's Urban Trees</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
     <h1> <a href="index.html" style="text-decoration:none; color:#000000">nectomire [blog] </a></h1>
-    <h2>nightbike</h2>
-
-    <p>2025.04.15</p>
-    <p> A song for nighttime biking.
-    </p>
-
-    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2080697358&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/nectomire" title="nectomire" target="_blank" style="color: #cccccc; text-decoration: none;">nectomire</a> · <a href="https://soundcloud.com/nectomire/nightbike" title="nightbike" target="_blank" style="color: #cccccc; text-decoration: none;">nightbike</a></div>
-    
+    <h2>Montreal's Urban Trees: An Analysis</h2>
+    <p>2023.11.01</p>
+    <p>In 2023, the City of Montreal chopped down a much-loved maple tree on my street and replaced it with a Ginkgo biloba sapling. Replacing diseased, unstable, and old trees is a standard maintanance practice of the City, but I was incensed that a native tree --capable of supporting local pollinators-- had been replaced with one native to East Asia and thus far less useful for the caterpillars, bees, and birds that rely on the neighborhood flora. Over the next year, I noticed more and more ginkgos appearing in my neighborhood. I began to wonder if this was a part of an initiative to increase the number of ginkgos explicitly, or if there was an apathy to the impacts of non-native trees on the resilience of local ecology.</p>
+    <img src="/blog/images/tree_analysis/frowning_at_ginkgo.png" width="60%">
+    <p>Trees co-evolve over millenia with local pollinators and birds. Because trees benefit from spreading seeds and pollen through local animal and insect life, they develop traits to best support the wildlife that are native to the area. This means that a Montreal neighborhood full of native oaks and maples is far better suited to support Montreal wildlife than a neighborhood full of ginkgos.</p>
+    <p>The Audobon Society  <a href="https://www.audubon.org/content/why-native-plants-matter">highlights entomologist Doug Tallamy's findings</a> that "native oak trees support over 500 species of caterpillars, whereas ginkgos [...] host only 5 species of caterpillar. When it takes over 6,000 caterpillars to raise one brood of chickadees, that is a significant difference." So, is the City of Montreal be replacing trees that do service the local ecology with those that don't? And if so, why?</p>
+    <h3>The analysis: Native trees in Montreal</h3>
+    <p>The City of Montreal maintains a database of all the trees planted on public city land: <a href="https://donnees.montreal.ca/dataset/arbres">The Arbres publics sur le territoire de la Ville.</a> As of 2023, the data contains 342,499 trees, with 50.8% containing a timestamp. It's reasonable to assume that there is a skew in the available timestamps which favors trees planted in more recent years, so we'll not look at planting rates directly. On the other hand, I have no reason to believe that there is a skew in species reporting over the years, so we can identify trends in native vs non-native tree planting trends.  </p>
+    <p>I looked at the top 200 species of trees planted in Montreal since 1980 (95.6% of the total dataset), and categorized each species as "Native" or "Non-native" to the Montreal area. Of the top 10 species planted, only <b>three</b> species are native to Montreal (in green below), and more than half of all trees on city land are non-native (56.7%). </p>
+    <img src="/blog/images/tree_analysis/montreal_top_10_trees.png">
+    <p>Looking at the data, it's likely that the maple I was sad to see replaced by a non-native tree was actually non-native itself, since Norway Maples are nearly as popular in the city as the native Silver Maple. My street in particular seems to have several Norway Maples in place of native trees, so maybe my disappointment was misplaced...</p>
+    <p>If we look at the distribution of native trees across the boroughs of the city, we can see that there is a general trend towards native trees as population density decreases --towards the outside of the city. LaSalle and Pierrefonds in particular have a high concentration of native trees, compared to more densely populated neighborhoods like Ville-Marie. A particular outlier in this view is Saint-Léonard, with only a shocking 26.3% native trees on public land.</p>
+    <img src="/blog/images/tree_analysis/neighborhood_trees.png">
+    <p>A closer view of just Le Plateau shows this effect in detail. Here, it's clear that the city is planting native trees in areas with more space (parks), and non-native trees along sidewalks and streetside rain gardens. The effect is so strong that it's clear to see the outline of the smaller parks that I have not labelled in the map below. </p>
+    <img src="/blog/images/tree_analysis/plateau_parks.png"> 
+    <p>Why is this? Well, it turns out that the trees native to Montreal are simply not good urban trees. The Silver Maples, Red Ash, and Common Hackberries that <b>do</b> like local critters do <b>not</b> like the compacted soil, air pollution, or drought/flooding conditions that come with being an urban tree (especially as climate change increases the frequency of these events). In order to grow healthily, they require space to spread their roots, and adequate soil drainage. These conditions usually warrant more subsurface infrastructure like a <a href="https://www.deeproot.com/products/silva-cell/">tree cell</a> which can be costly. Ginkgos, on the other hand, are <b>excellent</b> city trees that do not require additional infrastructure to thrive in an urban environment. As reported in <a href="https://www.slate.com/articles/health_and_science/science/2016/10/why_we_still_plant_smelly_ginkgo_trees.html">a Slate article about the urban ginkgo trend</a>, tree cells can cost up to $14,000 for a single tree, compared to the ~$1,650 to plant a ginkgo in compacted soil instead. </p>
+    <h3>Native trees in Montreal require more considerations, but they <b>are</b> on the rise</h3>
+    <p>In 2020, the City of Montreal announced a <a href="https://www.cbc.ca/news/canada/montreal/montreal-public-transit-climate-change-1.5836287">commitment to plant 500,000 more trees by 2030.</a> These trees won't only be planted on the public land covered in the available data --in fact, <a href="https://davidsuzuki.org/wp-content/uploads/2022/11/DSF-Executive-Summary-Scenarios-for-Planting-500000-New-Trees-in-Montreal.pdf">a study by the David Suzuki foundation </a> found that more than 60% of the available land for tree planting on the island is located on private land. So if you're someone with available space looking to add tree canopy to your yard, let the city do it for you!</p>
+    <p>Luckily, the difficulty managing healthy native trees doesn't appear to have slowed down the City of Montreal in prioritizing them. Sure, the trees we're seeing planted on our streets might be more obviously non-native than those present before, but the city is certainly making an effort to plant more native trees --demonstrated by the upward trend in the ratio of native to non-native trees since 2001. </p>
+    <img src="/blog/images/tree_analysis/Montreal_plot.png">
+    <p>Clearly, the City is making efforts to increase the native percentage of planted saplings. So, is the surge of ginkgos in my neighborhood in my head?  It turns out <b>no!</b> There are many more ginkgos going in than in the past -- an increase particularly present in my neighborhood of Le Plateau. </p>
+    <img src="/blog/images/tree_analysis/percentage_ginkgos_cropped.png">
+    <p>But given that native trees are steadily on the rise here, it's unlikely these are taking the place of any of the native trees filling the looser, cleaner soils in our parks and suburbs, and instead being prioritized over other non-native species. And with a lofty goal of 500,000 trees by the year 2030, there is a need to fill the less desirable (for trees) sidewalk planters and streetside rain gardens of the more dense neighborhoods --a task well-suited for the city-hearty and climate-resilient ginkgo.</p>
+    <p>So for now, I've made peace with the ginkgos going up in my neighborhood, knowing that a native counterpart will be popping up in my local park where she's free to stretch her roots.</p>
     <br>
     <br>
     <p>t h e n e c t o m i r e r [at] p r o t o n m a i l [dot] c o m 
+
+
     
 
 
-  </body>
-</html>
