@@ -46,12 +46,12 @@ img {
     display: block;
 }
 
-.image-70 {
-    display:flex;
-    width: 40%;
-    justify-content: center;
-
+.img-70 {
+    width: 70%;
+    margin: 2em auto;
+    display: block;
 }
+
 /* Image Grid Layouts */
 .image-row {
     display: flex;
