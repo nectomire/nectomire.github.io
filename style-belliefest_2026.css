@@ -40,7 +40,7 @@ h1, h2, h3 {
 /* Main title styling */
 header {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95));
-    background-image: url('tiedye_bg3.png');
+    background-image: url('/tiedye_bg3.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
