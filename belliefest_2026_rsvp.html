@@ -4,317 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belliefest 2026 RSVP</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
-        /** Variables **/
-        :root {
-          --color-background: #cbd5e1;
-          --color-background-alt: #3a9092;
-          --color-border-active: #23494c;
-          --color-border-default: #94a3b8;
-          --color-highlight: #7ecac7;
-          --color-primary: #23494c;
-          --color-primary-active: #122d30;
-          --color-text-default: #0f172a;
-          --color-text-muted: #475569;
-
-          --font-family-body: "Inter", sans-serif;
-        }
-
-        /** Base **/
-
-        *,
-        ::before,
-        ::after {
-          box-sizing: border-box;
-        }
-
-        * {
-          border: 10px;
-          margin: 5px;
-          padding: 0px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Arial', sans-serif;
-            color: #222;
-            margin-top: 2em;
-            margin-bottom: 0.5em;
-        }
-        h1 {
-            font-size: 2.5em;
-            text-align: center;
-        }
-        h2 {
-            font-size: 1.8em;
-        }
-        h3 {
-            font-size: 1.3em;
-        }
-
-        body {
-          -webkit-font-smoothing: antialiased;
-          font-family: var(--font-family-body);
-          font-optical-sizing: auto;
-          font-style: normal;
-        }
-
-        button,
-        input,
-        optgroup,
-        select,
-        textarea {
-          font-family: inherit;
-          font-feature-settings: inherit;
-          font-variation-settings: inherit;
-          font-size: 100%;
-          font-weight: inherit;
-          line-height: inherit;
-          color: inherit;
-          margin: 0;
-          padding: 0;
-        }
-
-        [type="checkbox"],
-        [type="radio"],
-        [type="range"] {
-          appearance: none;
-          flex-shrink: 0;
-          padding: 0;
-          user-select: none;
-        }
-
-        [type="checkbox"]:focus,
-        [type="radio"]:focus,
-        [type="range"]:focus {
-          outline: none;
-        }
-
-        /** Components **/
-
-        .fs-form {
-          display: grid;
-          row-gap: 1.5rem;
-        }
-
-        .fs-form:where(.fs-layout__2-column) {
-          column-gap: 0.75rem;
-          grid-template-columns: 1fr 1fr;
-        }
-
-        fieldset {
-          display: grid;
-          margin: 1rem 0;
-          row-gap: 1rem;
-        }
-
-        .fs-form:where(.fs-layout__2-column) fieldset {
-          column-gap: 0.75rem;
-          grid-template-columns: 1fr 1fr;
-          grid-column: 1 / -1;
-        }
-
-        .fs-fieldset-title {
-          color: var(--color-text-default);
-          font-family: var(--font-family-display);
-          font-size: 1.25rem;
-          font-weight: 500;
-          line-height: 1.75rem;
-          margin-bottom: 1rem;
-          grid-column: 1 / -1;
-        }
-
-        .fs-field {
-          display: flex;
-          flex-direction: column;
-          row-gap: 0.375rem;
-        }
-
-        .fs-label {
-          color: var(--color-text-default);
-          display: block;
-          font-family: var(--font-family-display);
-          font-size: 0.875rem;
-          font-weight: 500;
-          line-height: 1.25rem;
-        }
-
-        .fs-description {
-          color: var(--color-text-muted);
-          display: block;
-          font-size: 0.875rem;
-          line-height: 1.25rem;
-        }
-
-        .fs-button-group {
-          display: flex;
-          flex-direction: row-reverse;
-          column-gap: 0.75rem;
-        }
-
-        .fs-form:where(.fs-layout__2-column) .fs-button-group {
-          grid-column: 1 / -1;
-        }
-
-        .fs-button {
-          background-color: var(--color-primary);
-          border-radius: 0.375rem;
-          color: white;
-          cursor: pointer;
-          font-size: 0.875rem;
-          font-weight: 500;
-          line-height: 1rem;
-          padding: 1rem 2rem;
-          transition-duration: 200ms;
-          transition-property: background-color;
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fs-button:hover {
-          background-color: var(--color-primary-active);
-        }
-
-        .fs-button:focus-visible {
-          background-color: var(--color-primary-active);
-          outline: 3px solid var(--color-highlight);
-        }
-
-        .fs-input,
-        .fs-select {
-          appearance: none;
-          border-radius: 0.375rem;
-          border-width: 0;
-          box-shadow: var(--color-border-default) 0 0 0 1px inset;
-          color: var(--color-text-default);
-          font-size: 0.875rem;
-          height: 2rem;
-          line-height: 1.25rem;
-          outline: none;
-          padding-left: 0.75rem;
-          padding-right: 0.75rem;
-        }
-
-        .fs-input:focus-visible,
-        .fs-select:focus-visible {
-          box-shadow: var(--color-border-active) 0 0 0 1.5px inset;
-          outline: 3px solid var(--color-highlight);
-          outline-offset: 0;
-        }
-
-        .fs-input::placeholder {
-          color: var(--color-text-muted);
-        }
-
-        .fs-checkbox-group,
-        .fs-radio-group {
-          display: flex;
-          flex-direction: column;
-          row-gap: 0.5rem;
-        }
-
-        .fs-checkbox-field,
-        .fs-radio-field {
-          column-gap: 0.5rem;
-          display: flex;
-        }
-
-        :is(.fs-checkbox-field, .fs-radio-field) .fs-label + .fs-description {
-          margin-top: 0.125rem;
-        }
-
-        .fs-checkbox-wrapper,
-        .fs-radio-wrapper {
-          align-items: center;
-          display: flex;
-          height: 1.25rem;
-        }
-
-        .fs-checkbox,
-        .fs-radio {
-          background-color: #fff;
-          border: 1px solid var(--color-text-default);
-          height: 1rem;
-          width: 1rem;
-        }
-
-        .fs-checkbox {
-          border-radius: 0.25rem;
-        }
-
-        .fs-radio {
-          border-radius: 100%;
-        }
-
-        .fs-checkbox:checked,
-        .fs-radio:checked {
-          background-color: var(--color-primary);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: 100% 100%;
-          border-color: transparent;
-        }
-
-        .fs-checkbox:checked {
-          background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
-        }
-
-        .fs-radio:checked {
-          background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-        }
-
-        .fs-checkbox:focus-visible,
-        .fs-radio:focus-visible {
-          outline: 3px solid var(--color-highlight);
-          outline-offset: 0;
-        }
-
-        .fs-select {
-          background-color: #fff;
-          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-          background-position: right 0.5rem center;
-          background-repeat: no-repeat;
-          background-size: 1.5em 1.5em;
-          padding-right: 2.5rem;
-        }
-
-        .fs-textarea {
-          appearance: none;
-          border-radius: 0.375rem;
-          border-width: 0;
-          box-shadow: var(--color-border-default) 0 0 0 1px inset;
-          color: var(--color-primary);
-          font-size: 0.875rem;
-          line-height: 1.25rem;
-          outline: none;
-          padding: 0.5rem 0.75rem;
-          resize: vertical;
-        }
-
-        .fs-textarea:focus-visible {
-          box-shadow: var(--color-border-active) 0 0 0 1.5px inset;
-          outline: 3px solid var(--color-highlight);
-          outline-offset: 0;
-        }
-
-        .fs-textarea::placeholder {
-          color: var(--color-text-muted);
-        }
-
-        /** Utilities **/
-
-        .col-span-full {
-          grid-column: 1 / -1;
-        }
-
-        .hidden {
-          display: none;
-        }
-
-        .conditional-section {
-          transition: opacity 0.3s ease;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -411,14 +101,6 @@
                         <label class="fs-label" for="night-saturday">Saturday Night</label>
                     </div>
                 </div>
-                <div class="fs-checkbox-field">
-                    <div class="fs-checkbox-wrapper">
-                        <input class="fs-checkbox" id="night-sunday" name="staying-nights" type="checkbox" value="sunday" />
-                    </div>
-                    <div>
-                        <label class="fs-label" for="night-sunday">Sunday Night</label>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -477,19 +159,19 @@
                 </div>
             </div>
         </div>
-
+        <br>
         <!-- Dietary restrictions -->
         <div class="fs-field col-span-full">
-            <label class="fs-label" for="dietary-restrictions">Do you have any dietary restrictions?</label>
-            <textarea class="fs-textarea" id="dietary-restrictions" name="dietary-restrictions" rows="3" placeholder="Please describe any dietary restrictions or allergies..."></textarea>
+            <label class="fs-label" for="dietary-restrictions">The Belliefest weekend will be vegetarian and we will offer gluten free and diary free options. Do you have any dietary restrictions?</label>
+            <textarea class="fs-textarea" id="dietary-restrictions" name="dietary-restrictions" rows="3" placeholder="Or strong dislikes..."></textarea>
         </div>
-
+        <br>
         <!-- Activity ideas -->
         <div class="fs-field col-span-full">
             <label class="fs-label" for="activity-ideas">Do you have any ideas for activities that you'd like included in Belliefest?</label>
-            <textarea class="fs-textarea" id="activity-ideas" name="activity-ideas" rows="3" placeholder="Refer to the schedule for what we've already added..."></textarea>
+            <textarea class="fs-textarea" id="activity-ideas" name="activity-ideas" rows="3" placeholder="Refer to nectomire.net/belliefest-2026 for what we've already planned..."></textarea>
         </div>
-
+        <br>
         <div class="fs-field col-span-full">
             <label class="fs-label">If you suggested activities, would you be willing to help facilitate that activity?</label>
             <div class="fs-radio-group">
@@ -511,7 +193,7 @@
                 </div>
             </div>
         </div>
-
+        <br>
         <!-- Montreal accommodation -->
         <div class="fs-field col-span-full">
             <label class="fs-label">Would you like us to add you to a chat to facilitate a place in Montreal to stay before/after Belliefest?</label>
@@ -534,7 +216,7 @@
                 </div>
             </div>
         </div>
-
+        <br>
         <!-- Transportation -->
         <div class="fs-field col-span-full">
             <label class="fs-label">Will you have access to a car/be driving to Belliefest?</label>
@@ -617,7 +299,7 @@
     <!-- Additional comments -->
     <div class="fs-field col-span-full">
         <label class="fs-label" for="comments">Any other questions, comments or requests?</label>
-        <textarea class="fs-textarea" id="comments" name="comments" rows="4" placeholder="Post in the discussion section of the main page if you think the Q/A might be useful to others, post here if you'd like a private response"></textarea>
+        <textarea class="fs-textarea" id="comments" name="comments" rows="4" placeholder="Post in the discussion section of the main page if you think the Q/A might be useful to others, post here if you'd like a private response :)"></textarea>
     </div>
 
     <div class="fs-button-group">
@@ -625,50 +307,6 @@
     </div>
     </form>
 
-    <script>
-        function toggleAttendingFields() {
-            const attendingYes = document.getElementById('attending-yes');
-            const attendingFields = document.getElementById('attending-fields');
-            
-            if (attendingYes.checked) {
-                attendingFields.classList.remove('hidden');
-            } else {
-                attendingFields.classList.add('hidden');
-                // Also hide sub-fields when not attending
-                document.getElementById('staying-fields').classList.add('hidden');
-                document.getElementById('not-staying-fields').classList.add('hidden');
-                document.getElementById('has-car-fields').classList.add('hidden');
-                document.getElementById('no-car-fields').classList.add('hidden');
-            }
-        }
-
-        function toggleStayingFields() {
-            const stayingYes = document.getElementById('staying-yes');
-            const stayingFields = document.getElementById('staying-fields');
-            const notStayingFields = document.getElementById('not-staying-fields');
-            
-            if (stayingYes.checked) {
-                stayingFields.classList.remove('hidden');
-                notStayingFields.classList.add('hidden');
-            } else {
-                stayingFields.classList.add('hidden');
-                notStayingFields.classList.remove('hidden');
-            }
-        }
-
-        function toggleCarFields() {
-            const hasCarYes = document.getElementById('car-yes');
-            const hasCarFields = document.getElementById('has-car-fields');
-            const noCarFields = document.getElementById('no-car-fields');
-            
-            if (hasCarYes.checked) {
-                hasCarFields.classList.remove('hidden');
-                noCarFields.classList.add('hidden');
-            } else {
-                hasCarFields.classList.add('hidden');
-                noCarFields.classList.remove('hidden');
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
