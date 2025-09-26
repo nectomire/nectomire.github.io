@@ -5,6 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nectomire [blog]</title>
     <link rel="stylesheet" href="style-belliefest_2026.css">
+    <style>
+        .gliding-image {
+            position: fixed;
+            width: 320px;
+            height: 350px;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 3s ease-in-out;
+            pointer-events: none; /* Prevents images from interfering with page interaction */
+            border-radius: 8px;
+        }
+
+        /* Right side positioning and rotation */
+        .gliding-image.right-side {
+            transform: rotate(-90deg);
+        }
+
+        .gliding-image.right-side.slide-in {
+            opacity: 1;
+            right: -20px; /* Slides in 300px, leaving bottom portion cut off */
+        }
+
+        .gliding-image.right-side.slide-out {
+            opacity: 1;
+            right: -400px; /* Slide out to the right */
+        }
+
+        .gliding-image.right-side.initial {
+            right: -400px;
+        }
+
+        /* Left side positioning and rotation */
+        .gliding-image.left-side {
+            transform: rotate(90deg);
+        }
+
+        .gliding-image.left-side.slide-in {
+            opacity: 1;
+            left: -20px; /* Slides in 300px, leaving bottom portion cut off */
+        }
+
+        .gliding-image.left-side.slide-out {
+            opacity: 1;
+            left: -400px; /* Slide out to the left */
+        }
+
+        .gliding-image.left-side.initial {
+            left: -400px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,7 +62,6 @@
             <h3>September 18<sup>th</sup> - 20<sup>th</sup></h3>
         </h1>
     </header>
-
     <div class="content-section">
         <p>Please join friends and family for a weekend of swimming, dancing, and celebrating community with Ben and Ellie.</p>
         <div class="action-links">
@@ -20,7 +69,6 @@
             <a href="#">Open Invite</a>
         </div>
     </div>
-
     <!-- Quick links section -->
     <div class="quick-links">
         <h2>Quick Links</h2>
@@ -28,12 +76,10 @@
         <p><a href="#schedule">Schedule</a></p>
         <p><a href="#discussion">Discussion</a></p>
     </div>
-
     <div class="content-section">
         <h2 id="accommodations">Camp Hostýn and Accommodations</h2>
         <p>Information about the camp and accommodations will be added here...</p>
     </div>
-
     <div class="schedule-container">
         <h2 id="schedule">Schedule [tentative]</h2>
         <div class="content-section">
@@ -42,7 +88,7 @@
         <div class="schedule-day">Friday, September 18<sup>th</sup></div>
         <div class="schedule-item">Welcome to Camp Hostýn and snacks ... 4:00PM - 7:00PM</div>
         <div class="schedule-item">Concert and open mic ... 7:00PM - 10:00PM</div>
-        
+       
         <div class="schedule-day">Saturday, September 19<sup>th</sup></div>
         <div class="schedule-item">Breakfast ... 8:00AM - 10:00AM</div>
         <div class="schedule-item">Mini triathlon ... 10:00AM - 12:00PM</div>
@@ -52,11 +98,10 @@
         <div class="schedule-item">Contra dance ... 6:00PM - 7:00PM</div>
         <div class="schedule-item">Wedding vibe dancing ... 7:00PM - 9:00PM</div>
         <div class="schedule-item">Non wedding vibe dancing ... 9:00PM - forever</div>
-        
+       
         <div class="schedule-day">Sunday, September 20<sup>th</sup></div>
         <div class="schedule-item">Breakfast ... 8:00AM - 10:00AM</div>
     </div>
-
     <div class="discussion-section">
         <h2 id="discussion">Discussion</h2>
         <p>Post questions, recommendations, or requests (for carpooling, a place to stay before/after, ideas for activities...)!
@@ -72,5 +117,109 @@
             <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
         </div>
     </div>
+
+    <script>
+        class GlidingImages {
+            constructor(imagePaths) {
+                this.imagePaths = imagePaths;
+                this.currentImageIndex = 0;
+                this.shuffledImages = [...imagePaths];
+                this.currentImageElement = null;
+                
+                this.shuffleImages();
+                this.startImageCycle();
+            }
+
+            shuffleImages() {
+                // Fisher-Yates shuffle algorithm
+                for (let i = this.shuffledImages.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [this.shuffledImages[i], this.shuffledImages[j]] = [this.shuffledImages[j], this.shuffledImages[i]];
+                }
+            }
+
+            getRandomYPosition() {
+                const viewportHeight = window.innerHeight;
+                const imageHeight = 350;
+                const minY = viewportHeight * 0.2; // 20% of viewport height
+                const maxY = viewportHeight * 0.8 - imageHeight; // 80% minus image height
+                return Math.random() * (maxY - minY) + minY;
+            }
+
+            getRandomSide() {
+                return Math.random() < 0.5 ? 'left-side' : 'right-side';
+            }
+
+            createImageElement(imagePath) {
+                const img = document.createElement('img');
+                img.src = imagePath;
+                const side = this.getRandomSide();
+                img.className = `gliding-image ${side} initial`;
+                img.style.top = `${this.getRandomYPosition()}px`;
+                document.body.appendChild(img);
+                return img;
+            }
+
+            showNextImage() {
+                if (this.imagePaths.length === 0) return;
+
+                // Get next image path
+                const imagePath = this.shuffledImages[this.currentImageIndex];
+                this.currentImageIndex = (this.currentImageIndex + 1) % this.shuffledImages.length;
+                
+                // If we've shown all images, shuffle again
+                if (this.currentImageIndex === 0) {
+                    this.shuffleImages();
+                }
+
+                // Create and position the image
+                this.currentImageElement = this.createImageElement(imagePath);
+                
+                // Start slide-in animation after a small delay
+                setTimeout(() => {
+                    this.currentImageElement.classList.remove('initial');
+                    this.currentImageElement.classList.add('slide-in');
+                }, 100);
+
+                // Start slide-out animation after 10 seconds (2x longer)
+                setTimeout(() => {
+                    if (this.currentImageElement) {
+                        this.currentImageElement.classList.remove('slide-in');
+                        this.currentImageElement.classList.add('slide-out');
+                        
+                        // Remove element after slide-out animation completes
+                        setTimeout(() => {
+                            if (this.currentImageElement && this.currentImageElement.parentNode) {
+                                this.currentImageElement.parentNode.removeChild(this.currentImageElement);
+                            }
+                        }, 3000); // Match the transition duration (3s)
+                    }
+                }, 10000);
+            }
+
+            startImageCycle() {
+                // Show first image immediately
+                this.showNextImage();
+                
+                // Then show subsequent images every 20 seconds (10s visible + 10s gap, 2x slower)
+                setInterval(() => {
+                    this.showNextImage();
+                }, 20000);
+            }
+        }
+
+        // Initialize the gliding images when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Your image paths
+            const imagePaths = [
+                'be_cut1.png',
+                'be_cut2.png',
+                'be_cut3.png',
+                'be_cut4.png',
+            ];
+            
+            new GlidingImages(imagePaths);
+        });
+    </script>
 </body>
 </html>
