@@ -119,6 +119,11 @@
     </div>
 
     <script>
+        // Check authentication
+        if (sessionStorage.getItem('belliefest_auth') !== 'true') {
+            window.location.href = 'belliefest-2026-login.html';
+        }
+
         class GlidingImages {
             constructor(imagePaths) {
                 this.imagePaths = imagePaths;
