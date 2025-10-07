@@ -231,6 +231,11 @@
     <script src="gliding-image.js"></script>
     <script src="script-sections.js"></script>
     <script>
+        // Check authentication
+        if (sessionStorage.getItem('belliefest_auth') !== 'true') {
+            window.location.href = 'belliefest-2026-login.html';
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const imagePaths = [
                 'images/be_cut1.png',
