@@ -1,4 +1,3 @@
-/* Base styles */
 body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
@@ -11,8 +10,7 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     
-    /* Background properties */
-    background-image: url('tiedye_bg1.png');
+    background-image: url('images/tiedye_bg1.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -23,7 +21,6 @@ img {
     width:70%;
 }
 
-/* Content containers with backgrounds */
 .content-section {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
@@ -42,7 +39,6 @@ img {
     backdrop-filter: blur(5px);
 }
 
-/* Typography with enhanced header styling */
 h1, h2, h3 {
     font-family: 'Arial', sans-serif;
     color: #222;
@@ -50,9 +46,8 @@ h1, h2, h3 {
     margin-bottom: 0.5em;
 }
 
-/* Header container styling with tiedye_bg5 */
 .header-container {
-    background-image: url('tiedye_bg5.png');
+    background-image: url('images/tiedye_bg5.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -64,10 +59,9 @@ h1, h2, h3 {
     backdrop-filter: blur(10px);
 }
 
-/* Main title styling */
 header {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95));
-    background-image: url('/tiedye_bg3.png');
+    background-image: url('images/tiedye_bg3.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -86,11 +80,10 @@ h1 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Section headers */
 h2 {
     font-size: 1.8em;
     background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(129, 199, 132, 0.9));
-    background-image: url('tiedye_bg3.png');
+    background-image: url('images/tiedye_bg3.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -103,7 +96,6 @@ h2 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Subsection headers */
 h3 {
     font-size: 1.7em;
     color: white;
@@ -119,10 +111,9 @@ h4 {
     font-family:Arial, Helvetica, sans-serif
 }
 
-/* Schedule container styling */
  .schedule-container {
-            background-image: url('tiedye_bg3.png');
-            background-attachment: fixed;
+            background-image: url('images/tiedye_bg3.png');
+            background-attachment: scroll;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -132,9 +123,8 @@ h4 {
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
         }
         
-        /* Schedule container header styling */
         .schedule-container h2 {
-            background-image: url('tiedye_bg5.png');
+            background-image: url('images/tiedye_bg5.png');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -150,7 +140,7 @@ h4 {
         
         .schedule-day {
             background: linear-gradient(135deg, rgba(156, 39, 176, 0.9), rgba(186, 104, 200, 0.9));
-            background-image: url('tiedye_bg5.png');
+            background-image: url('images/tiedye_bg5.png');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -164,7 +154,6 @@ h4 {
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
         
-        /* Schedule table styling */
         .schedule-table {
             width: 100%;
             border-collapse: separate;
@@ -200,7 +189,6 @@ h4 {
             border-bottom-right-radius: 4px;
         }
         
-        /* Add space between concurrent event groups */
         .schedule-table td:nth-child(2) {
             padding-right: 30px;
         }
@@ -209,7 +197,6 @@ h4 {
             padding-left: 30px;
         }
         
-        /* Full-width event styling */
         .schedule-item-full {
             font-weight: normal;
             font-size: 18px;
@@ -217,7 +204,6 @@ h4 {
             border-left: 4px solid #9c27b0;
         }
         
-        /* Description styling */
         .event-description {
             font-size: 14px;
             font-style: italic;
@@ -233,10 +219,9 @@ h4 {
         }
 
 
-/* Intro section styling */
 .intro-section {
     background: linear-gradient(135deg, rgba(233, 30, 99, 0.9), rgba(240, 98, 146, 0.9));
-    background-image: url('tiedye_bg3.png');
+    background-image: url('images/tiedye_bg3.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -248,7 +233,7 @@ h4 {
 }
 
 .intro-section h2 {
-    background-image: url('tiedye_bg5.png');
+    background-image: url('images/tiedye_bg5.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -266,10 +251,9 @@ h4 {
     margin: 10px 0;
 }
 
-/* Links section styling */
 .links-section {
     background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(100, 181, 246, 0.9));
-    background-image: url('tiedye_bg3.png');
+    background-image: url('images/tiedye_bg3.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -281,7 +265,7 @@ h4 {
 }
 
 .links-section h2 {
-    background-image: url('tiedye_bg5.png');
+    background-image: url('images/tiedye_bg5.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -302,10 +286,9 @@ h4 {
     text-decoration: underline;
 }
 
-/* Accommodations section styling */
 .accommodations-section {
     background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(129, 199, 132, 0.9));
-    background-image: url('tiedye_bg3.png');
+    background-image: url('images/tiedye_bg3.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -317,7 +300,7 @@ h4 {
 }
 
 .accommodations-section h2 {
-    background-image: url('tiedye_bg5.png');
+    background-image: url('images/tiedye_bg5.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -329,7 +312,7 @@ h4 {
 
 .faq-section {
     background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(129, 199, 132, 0.9));
-    background-image: url('tiedye_bg3.png');
+    background-image: url('images/tiedye_bg3.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -341,7 +324,7 @@ h4 {
 }
 
 .faq-section h2 {
-    background-image: url('tiedye_bg5.png');
+    background-image: url('images/tiedye_bg5.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -351,15 +334,11 @@ h4 {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-
-
-/* Content */
 p {
     margin-bottom: 1.5em;
     text-align: left;
 }
 
-/* Links */
 a {
     color: #0066cc;
     text-decoration: none;
@@ -369,7 +348,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* RSVP and invite links styling - rectangular with beveled corners */
 .action-links {
     text-align: center;
     margin: 25px 0;
@@ -377,7 +355,7 @@ a:hover {
 
 .action-links a {
     display: inline-block;
-    background: url('tiedye_bg4.png');
+    background: url('images/tiedye_bg4.png');
     color: white;
     padding: 14px 30px;
     border-radius: 8px;
@@ -406,7 +384,6 @@ a:hover {
         inset 0 2px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* Images */
 img {
     max-width: 100%;
     height: auto;
@@ -420,7 +397,6 @@ img {
     display: block;
 }
 
-/* Image Grid Layouts */
 .image-row {
     display: flex;
     justify-content: space-between;
@@ -438,7 +414,6 @@ img {
     margin: 0;
 }
 
-/* Triangle Image Layout */
 .triangle-images {
     display: grid;
     grid-template-columns: repeat(2, calc(45% - 10px));
@@ -460,7 +435,6 @@ img {
     justify-self: center;
 }
 
-/* Blockquotes */
 blockquote {
     margin: 2em 0;
     padding-left: 1.5em;
@@ -469,7 +443,6 @@ blockquote {
     color: #666;
 }
 
-/* Code blocks */
 pre, code {
     background-color: #f5f5f5;
     padding: 0.2em 0.4em;
@@ -482,10 +455,9 @@ pre {
     overflow-x: auto;
 }
 
-/* Discussion section */
 .discussion-section {
     background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 213, 79, 0.9));
-    background-image: url('tiedye_bg3.png');
+    background-image: url('images/tiedye_bg3.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -497,7 +469,7 @@ pre {
 }
 
 .discussion-section h2 {
-    background-image: url('tiedye_bg5.png');
+    background-image: url('images/tiedye_bg5.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -515,7 +487,6 @@ pre {
     color: #333;
 }
 
-/* Container for the comment system */
 .container {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
@@ -524,7 +495,6 @@ pre {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Expanded cusdis container */
 .container-cusdis {
     background-color: rgba(255, 255, 255, 0.95);
     background-attachment: fixed;
@@ -543,18 +513,16 @@ pre {
     height: 100%;
 }
 
-/* Target the iframe inside cusdis_thread */
 #cusdis_thread iframe {
-    min-height: 600px;  /* Adjust this value to your preference */
-    max-height: 1000px; /* Optional: prevents unreasonably tall iframe */
+    min-height: 1500px;  
+    max-height: 10000px; 
     width: 100%;
 }
 
-/* Gliding images - updated with 50% larger size and diagonal rotation */
 .gliding-image {
     position: fixed;
-    width: 480px;  /* Increased from 320px (50% larger) */
-    height: 525px; /* Increased from 350px (50% larger) */
+    width: 480px;  
+    height: 525px; 
     z-index: 1000;
     opacity: 0;
     transition: all 3s ease-in-out;
@@ -562,14 +530,13 @@ pre {
     border-radius: 8px;
 }
 
-/* Right side positioning and rotation - diagonal, less intrusion */
 .gliding-image.right-side {
-    transform: rotate(-50deg); /* Changed from -90deg to -45deg for diagonal */
+    transform: rotate(-50deg); 
 }
 
 .gliding-image.right-side.slide-in {
     opacity: 1;
-    right: -150px; /* Adjusted so corners don't fully enter */
+    right: -150px; 
 }
 
 .gliding-image.right-side.slide-out {
@@ -581,14 +548,13 @@ pre {
     right: -600px;
 }
 
-/* Left side positioning and rotation - diagonal, less intrusion */
 .gliding-image.left-side {
-    transform: rotate(50deg); /* Changed from 90deg to 45deg for diagonal */
+    transform: rotate(50deg); 
 }
 
 .gliding-image.left-side.slide-in {
     opacity: 1;
-    left: -180px; /* Adjusted so corners don't fully enter */
+    left: -180px; 
 }
 
 .gliding-image.left-side.slide-out {
@@ -600,7 +566,6 @@ pre {
     left: -600px;
 }
 
-/* Collapsible section styles */
 .section-header-clickable {
     cursor: pointer;
     position: relative;
@@ -610,7 +575,7 @@ pre {
 .section-header-clickable::before {
     content: '›';
     position: absolute;
-    left: -30px;
+    left: -20px;
     font-size: 1.5em;
     transition: transform 0.3s ease;
     display: inline-block;
@@ -629,4 +594,66 @@ pre {
 .collapsible-content.expanded {
     max-height: 5000px;
     transition: max-height 0.6s ease-in;
+}
+
+@media (max-width: 768px) {
+    .schedule-container {
+        padding: 15px 10px;
+        background-attachment: scroll;
+    }
+    
+    .schedule-day {
+        font-size: 18px;
+        padding: 10px 15px;
+        background-attachment: scroll;
+    }
+    
+    .schedule-table {
+        border-spacing: 0 8px;
+    }
+    
+    .schedule-table tr {
+        display: block;
+        margin-bottom: 15px;
+    }
+    
+    .schedule-table td {
+        display: block;
+        width: 100% !important;
+        padding: 12px 15px;
+    }
+    
+    .schedule-table td:nth-child(2),
+    .schedule-table td:nth-child(3) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .schedule-time {
+        text-align: left;
+        padding-top: 0;
+        padding-left: 15px;
+        border-radius: 0;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+    
+    .schedule-item {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-bottom: 8px;
+    }
+    
+    .schedule-item-full {
+        position: relative;
+        padding-right: 15px;
+        border-radius: 4px;
+    }
+    
+    .schedule-item-full div[style*="float"] {
+        float: none !important;
+        margin-top: 6px !important;
+        font-size: 14px;
+        color: #666;
+    }
 }
