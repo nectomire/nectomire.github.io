@@ -57,7 +57,7 @@ body {
   font-style: normal;
   
   /* Add these background properties */
-  background-image: url('tiedye_bg1.png'); /* Replace with your image path */
+  background-image: url('images/tiedye_bg1.png'); /* Replace with your image path */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
