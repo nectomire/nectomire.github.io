@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="style-belliefest_2026_rsvp.css">
 </head>
 <body>
-    <header>
-      <border>
-        <h1>Belliefest 2026</h1>
-      </border>
-    </header>
-    <div class="content-section">
+    <div class="header-container">
+        <header>
+            <div class="logo-section">
+                <img src="images/Belliefest_logo.png" alt="Belliefest 2026">
+            </div>
+            <h3>September 18<sup>th</sup> - 20<sup>th</sup></h3>
+            <h3>Camp Hostýn, Saint-Calixte, Quebec</h3>
+        </header>
+    </div>
+
+    <div class="accommodations-section">
+        <div class="content-section">
     <form
       action="https://formspree.io/f/mandrneo"
       class="fs-form fs-layout__2-column"
@@ -304,12 +310,19 @@
         <textarea class="fs-textarea" id="comments" name="comments" rows="4" placeholder="Post in the discussion section of the main page if you think the Q/A might be useful to others, post here if you'd like a private response :)"></textarea>
     </div>
 
-    <div class="fs-button-group">
-        <button class="fs-button" type="submit">Submit</button>
+    <div class="col-span-full" style="text-align: right; margin-top: 20px;">
+        <button type="submit" style="display: inline-block; background: url('images/tiedye_bg4.png'); color: white; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin: 0; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;">Submit</button>
     </div>
     </form>
+        </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Check authentication
+        if (sessionStorage.getItem('belliefest_auth') !== 'true') {
+            window.location.href = 'belliefest-2026-login.html';
+        }
+    </script>
 </body>
 </html>

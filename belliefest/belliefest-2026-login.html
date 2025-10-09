@@ -113,7 +113,7 @@
                 // Store authentication in sessionStorage
                 sessionStorage.setItem('belliefest_auth', 'true');
                 // Redirect to main page
-                window.location.href = 'belliefest-2026.html';
+                window.location.href = 'belliefest_2026_rsvp.html';
             } else {
                 errorMessage.classList.add('show');
                 passwordInput.value = '';
@@ -125,7 +125,7 @@
 
         // Check if already authenticated
         if (sessionStorage.getItem('belliefest_auth') === 'true') {
-            window.location.href = 'belliefest-2026.html';
+            window.location.href = 'belliefest_2026_rsvp.html';
         }
     </script>
 </body>
