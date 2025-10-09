@@ -29,22 +29,6 @@
   padding: 0px;
 }
 
-h1, h2, h3 {
-    font-family: 'Arial', sans-serif;
-    color: #222;
-    margin-top: 2em;
-    margin-bottom: 0.5em;
-}
-h1 {
-    font-size: 2.5em;
-    text-align: center;
-}
-h2 {
-    font-size: 1.8em;
-}
-h3 {
-    font-size: 1.3em;
-}
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -57,7 +41,7 @@ body {
   font-style: normal;
   
   /* Add these background properties */
-  background-image: url('tiedye_bg1.png'); /* Replace with your image path */
+  background-image: url('images/tiedye_bg1.png'); /* Replace with your image path */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

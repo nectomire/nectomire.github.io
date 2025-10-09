@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belliefest 2026 - Login</title>
+    <link rel="stylesheet" href="style-belliefest_2026.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #94a3b8;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            text-align: center;
+            margin-left: 0;
+            margin-right: 0;
+            box-sizing: border-box;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 200ms;
+        }
+
+        .login-button:hover {
+            background-color: var(--color-primary-active);
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Belliefest 2026</h2>
+        <form id="login-form" onsubmit="return handleLogin(event)">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required autofocus>
+                <div id="error-message" class="error-message">Incorrect password. Please try again.</div>
+            </div>
+            <button type="submit" class="login-button">Enter</button>
+        </form>
+    </div>
+
+    <script>
+        // SHA-256 hash of "arrowsteel"
+        const CORRECT_HASH = "ba5fe72cb427d66db105b2619782d63b016392345f82ec2ee0b2016fddaf7d31";
+
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        }
+
+        async function handleLogin(event) {
+            event.preventDefault();
+
+            const passwordInput = document.getElementById('password');
+            const errorMessage = document.getElementById('error-message');
+            const password = passwordInput.value;
+
+            const hash = await sha256(password);
+
+            if (hash === CORRECT_HASH) {
+                // Store authentication in sessionStorage
+                sessionStorage.setItem('belliefest_auth', 'true');
+                // Redirect to main page
+                window.location.href = 'belliefest_2026_rsvp.html';
+            } else {
+                errorMessage.classList.add('show');
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+
+            return false;
+        }
+
+        // Check if already authenticated
+        if (sessionStorage.getItem('belliefest_auth') === 'true') {
+            window.location.href = 'belliefest_2026_rsvp.html';
+        }
+    </script>
+</body>
+</html>
