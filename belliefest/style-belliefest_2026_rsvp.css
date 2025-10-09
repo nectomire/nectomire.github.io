@@ -57,7 +57,7 @@ body {
   font-style: normal;
   
   /* Add these background properties */
-  background-image: url('tiedye_bg1.png'); /* Replace with your image path */
+  background-image: url('images/tiedye_bg1.png'); /* Replace with your image path */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -100,6 +100,8 @@ textarea {
 .fs-form {
   display: grid;
   row-gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .fs-form:where(.fs-layout__2-column) {
