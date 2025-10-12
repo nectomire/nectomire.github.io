@@ -84,47 +84,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle Quick Links behavior - UPDATED SELECTOR
-    const quickLinks = document.querySelectorAll('.header-container .content-section a');
-    quickLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            
-            // Only handle internal links (starting with #)
-            if (!href || !href.startsWith('#')) return;
+// Handle Quick Links behavior
+const quickLinks = document.querySelectorAll('.header-container .content-section a');
+quickLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        
+        if (!href || !href.startsWith('#')) return;
 
-            e.preventDefault();
-            const targetId = href.substring(1);
+        e.preventDefault();
+        const targetId = href.substring(1);
 
-            // Find which section this link corresponds to
-            const targetSection = collapsibleSections.find(s => s.id === targetId);
+        const targetSection = collapsibleSections.find(s => s.id === targetId);
 
-            // Collapse all collapsible sections
-            collapsibleSections.forEach(section => {
-                const sectionElement = document.querySelector(section.selector);
-                if (!sectionElement) return;
+        // Collapse all collapsible sections
+        collapsibleSections.forEach(section => {
+            const sectionElement = document.querySelector(section.selector);
+            if (!sectionElement) return;
 
-                const header = sectionElement.querySelector('h2');
-                const content = sectionElement.querySelector('.collapsible-content');
+            const header = sectionElement.querySelector('h2');
+            const content = sectionElement.querySelector('.collapsible-content');
 
-                if (section.id === targetId) {
-                    // Expand the target section
-                    content.classList.add('expanded');
-                    header.classList.add('expanded');
-                } else {
-                    // Collapse other sections
-                    content.classList.remove('expanded');
-                    header.classList.remove('expanded');
-                }
-            });
-
-            // Scroll to the target section
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                setTimeout(() => {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
+            if (section.id === targetId) {
+                content.classList.add('expanded');
+                header.classList.add('expanded');
+            } else {
+                content.classList.remove('expanded');
+                header.classList.remove('expanded');
             }
         });
+
+        // Wait for the expansion transition to complete (600ms + small buffer)
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            setTimeout(() => {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 650); // Changed from 100ms to 650ms
+        }
     });
+});
+
 });
