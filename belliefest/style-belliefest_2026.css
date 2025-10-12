@@ -49,21 +49,18 @@ h1, h2, h3 {
     padding: 25px;
     margin: 0px 0;
 }
-
 header img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
 header img:first-child {
     width: 85%;
-    margin-bottom: -70px;
+    margin-bottom: -10.5%;  /* Changed from -70px */
 }
-
 header img:nth-child(2) {
     width: 30.5%;
-    margin-bottom: -30px; 
+    margin-bottom: -5%;   /* Changed from -30px */
 }
 header img:nth-child(3) {
     width: 40.5%;
