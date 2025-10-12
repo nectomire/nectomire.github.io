@@ -50,8 +50,7 @@
             width: 100%;
             padding: 0.75rem;
             background-color: var(--color-primary);
-            color: white;
-            border: none;
+            color: black;
             border-radius: 0.375rem;
             font-size: 1rem;
             font-weight: 500;
@@ -76,22 +75,26 @@
     </style>
 </head>
 <body>
+        <div class="header-container">
+        <header>
+            <img src="images/darker_logo.png" alt="Belliefest 2026">
+            <img src="images/sept_18.png" alt="September 18th - 20th">
+            <img src="images/hostyn_text.png" alt="Camp Hostýn,  Saint-Calixte, Quebec">
+        </header>
+        </div>
     <div class="login-container">
-        <h2>Belliefest 2026</h2>
         <form id="login-form" onsubmit="return handleLogin(event)">
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password">RSVP password:</label>
                 <input type="password" id="password" name="password" required autofocus>
-                <div id="error-message" class="error-message">Incorrect password. Please try again.</div>
+                <div id="error-message" class="error-message">Incorrect password. Please try again or check with Ben/Ellie.</div>
             </div>
             <button type="submit" class="login-button">Enter</button>
         </form>
     </div>
 
     <script>
-        // SHA-256 hash of "arrowsteel"
         const CORRECT_HASH = "ba5fe72cb427d66db105b2619782d63b016392345f82ec2ee0b2016fddaf7d31";
-
         async function sha256(message) {
             const msgBuffer = new TextEncoder().encode(message);
             const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
@@ -110,9 +113,7 @@
             const hash = await sha256(password);
 
             if (hash === CORRECT_HASH) {
-                // Store authentication in sessionStorage
                 sessionStorage.setItem('belliefest_auth', 'true');
-                // Redirect to main page
                 window.location.href = 'belliefest_2026_rsvp.html';
             } else {
                 errorMessage.classList.add('show');

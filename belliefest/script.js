@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Define which sections should be collapsible (exclude discussion)
     const collapsibleSections = [
         { selector: '.accommodations-section', id: 'accommodations' },
-        { selector: '.schedule-container', id: 'schedule' }
+        { selector: '.schedule-container', id: 'schedule' },
+        { selector: '.faq-section', id: 'faq' }
     ];
 
     // Initialize collapsible sections
@@ -83,8 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle Quick Links behavior
-    const quickLinks = document.querySelectorAll('.links-section .content-section a');
+    // Handle Quick Links behavior - UPDATED SELECTOR
+    const quickLinks = document.querySelectorAll('.header-container .content-section a');
     quickLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');

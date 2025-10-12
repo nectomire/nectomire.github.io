@@ -6,15 +6,70 @@
     <title>Belliefest 2026 RSVP</title>
     <link rel="stylesheet" href="style-belliefest_2026.css">
     <link rel="stylesheet" href="style-belliefest_2026_rsvp.css">
+
+    <script src="script.js"></script>
+    <script>
+        // Check authentication
+        if (sessionStorage.getItem('belliefest_auth') !== 'true') {
+            window.location.href = 'belliefest-2026-login.html';
+        }
+
+        function toggleAttendingFields() {
+            const attendingYes = document.getElementById('attending-yes');
+            const attendingFields = document.getElementById('attending-fields');
+            
+            if (attendingYes.checked) {
+                attendingFields.classList.remove('hidden');
+            } else {
+                attendingFields.classList.add('hidden');
+                document.getElementById('staying-fields').classList.add('hidden');
+                document.getElementById('bedding-fields').classList.add('hidden');
+                document.getElementById('not-staying-fields').classList.add('hidden');
+                document.getElementById('has-car-fields').classList.add('hidden');
+                document.getElementById('no-car-fields').classList.add('hidden');
+            }
+        }
+
+        function toggleStayingFields() {
+            const stayingYes = document.getElementById('staying-yes');
+            const stayingFields = document.getElementById('staying-fields');
+            const beddingFields = document.getElementById('bedding-fields');
+            const notStayingFields = document.getElementById('not-staying-fields');
+            
+            if (stayingYes.checked) {
+                stayingFields.classList.remove('hidden');
+                beddingFields.classList.remove('hidden');
+                notStayingFields.classList.add('hidden');
+            } else {
+                stayingFields.classList.add('hidden');
+                beddingFields.classList.add('hidden');
+                notStayingFields.classList.remove('hidden');
+            }
+        }
+
+        function toggleCarFields() {
+            const hasCarYes = document.getElementById('car-yes');
+            const hasCarFields = document.getElementById('has-car-fields');
+            const noCarFields = document.getElementById('no-car-fields');
+            
+            if (hasCarYes.checked) {
+                hasCarFields.classList.remove('hidden');
+                noCarFields.classList.add('hidden');
+            } else {
+                hasCarFields.classList.add('hidden');
+                noCarFields.classList.remove('hidden');
+            }
+        }
+    </script>
+
 </head>
 <body>
     <div class="header-container">
-        <header>
-            <div class="logo-section">
-                <img src="images/Belliefest_logo.png" alt="Belliefest 2026">
-            </div>
-            <h3>September 18<sup>th</sup> - 20<sup>th</sup></h3>
-            <h3>Camp Hostýn, Saint-Calixte, Quebec</h3>
+        <header> 
+            <img src="images/darker_logo.png" alt="Belliefest 2026">
+            <img src="images/sept_18.png" alt="September 18th - 20th">
+            <img src="images/hostyn_text.png" alt="Camp Hostýn,  Saint-Calixte, Quebec">
+
         </header>
     </div>
 
@@ -60,12 +115,12 @@
     <div id="attending-fields" class="conditional-section col-span-full hidden">
         
         <fieldset>
-            <div class="fs-field">
-                <label class="fs-label" for="party-size">How many people in your party?</label>
+            <div class="fs-field col-span-full">
+                <label class="fs-label" for="party-size">How many people from your party will be joining?</label>
                 <input class="fs-input" id="party-size" name="party-size" type="number" min="1" />
             </div>
             
-            <div class="fs-field">
+            <div class="fs-field col-span-full">
                 <label class="fs-label">Will you be staying with us at Camp Hostyn?</label>
                 <div class="fs-radio-group">
                     <div class="fs-radio-field">
@@ -85,11 +140,11 @@
                         </div>
                     </div>
                 </div>
-                <p class="fs-description">For more details please see nectomire.net/belliefest-2026</p>
+                <p class="fs-description">For more details on Camp Hostyn, please see nectomire.net/belliefest</p>
             </div>
         </fieldset>
 
-        <!-- If staying at camp -->
+        <!-- If staying at camp - nights -->
         <div id="staying-fields" class="fs-field col-span-full hidden">
             <label class="fs-label">For which nights will you be staying?</label>
             <div class="fs-checkbox-group">
@@ -110,6 +165,30 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- If staying at camp - bedding -->
+        <div id="bedding-fields" class="fs-field col-span-full hidden">
+            <label class="fs-label">Will you bring your own (warm) bedding?</label>
+            <div class="fs-radio-group">
+                <div class="fs-radio-field">
+                    <div class="fs-radio-wrapper">
+                        <input class="fs-radio" id="bedding-yes" name="bring-bedding" type="radio" value="yes" />
+                    </div>
+                    <div>
+                        <label class="fs-label" for="bedding-yes">Yes</label>
+                    </div>
+                </div>
+                <div class="fs-radio-field">
+                    <div class="fs-radio-wrapper">
+                        <input class="fs-radio" id="bedding-no" name="bring-bedding" type="radio" value="no" />
+                    </div>
+                    <div>
+                        <label class="fs-label" for="bedding-no">No</label>
+                    </div>
+                </div>
+            </div>
+            <p class="fs-description">If not, we'll bring some for you!</p>
         </div>
 
         <!-- If not staying at camp -->
@@ -134,7 +213,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="fs-description">Feel free to post in the discussion section of nectomire.net/belliefest-2026 anonymously and we'll give you some more info before you RSVP!</p>
+                <p class="fs-description">Feel free to post in the discussion section of nectomire.net/belliefest anonymously and we'll give you some more info before you RSVP!</p>
             </div>
             
             <div class="fs-field">
@@ -170,18 +249,18 @@
         <br>
         <!-- Dietary restrictions -->
         <div class="fs-field col-span-full">
-            <label class="fs-label" for="dietary-restrictions">The Belliefest weekend will be vegetarian and we will offer gluten free and diary free options. Do you have any dietary restrictions?</label>
-            <textarea class="fs-textarea" id="dietary-restrictions" name="dietary-restrictions" rows="3" placeholder="Or strong dislikes..."></textarea>
+            <label class="fs-label" for="dietary-restrictions">The Belliefest weekend will be vegetarian. Do you have any other dietary restrictions?</label>
+            <textarea class="fs-textarea" id="dietary-restrictions" name="dietary-restrictions" rows="3" placeholder=""></textarea>
         </div>
         <br>
         <!-- Activity ideas -->
         <div class="fs-field col-span-full">
             <label class="fs-label" for="activity-ideas">Do you have any ideas for activities that you'd like included in Belliefest?</label>
-            <textarea class="fs-textarea" id="activity-ideas" name="activity-ideas" rows="3" placeholder="Refer to nectomire.net/belliefest-2026 for what we've already planned..."></textarea>
+            <textarea class="fs-textarea" id="activity-ideas" name="activity-ideas" rows="3" placeholder="Refer to nectomire.net/belliefest to see what we've already planned..."></textarea>
         </div>
         <br>
         <div class="fs-field col-span-full">
-            <label class="fs-label">If you suggested activities, would you be willing to help facilitate that activity?</label>
+            <label class="fs-label">If you suggested any activities, would you be willing to help facilitate?</label>
             <div class="fs-radio-group">
                 <div class="fs-radio-field">
                     <div class="fs-radio-wrapper">
@@ -225,75 +304,7 @@
             </div>
         </div>
         <br>
-        <!-- Transportation -->
-        <div class="fs-field col-span-full">
-            <label class="fs-label">Will you have access to a car/be driving to Belliefest?</label>
-            <div class="fs-radio-group">
-                <div class="fs-radio-field">
-                    <div class="fs-radio-wrapper">
-                        <input class="fs-radio" id="car-yes" name="has-car" type="radio" value="yes" onchange="toggleCarFields()" />
-                    </div>
-                    <div>
-                        <label class="fs-label" for="car-yes">Yes</label>
-                    </div>
-                </div>
-                <div class="fs-radio-field">
-                    <div class="fs-radio-wrapper">
-                        <input class="fs-radio" id="car-no" name="has-car" type="radio" value="no" onchange="toggleCarFields()" />
-                    </div>
-                    <div>
-                        <label class="fs-label" for="car-no">No</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- If has car -->
-        <div id="has-car-fields" class="fs-field col-span-full hidden">
-            <label class="fs-label">Would you be willing to help carpool folks from Montreal to Belliefest (any time)?</label>
-            <div class="fs-radio-group">
-                <div class="fs-radio-field">
-                    <div class="fs-radio-wrapper">
-                        <input class="fs-radio" id="carpool-help-yes" name="carpool-help" type="radio" value="yes" />
-                    </div>
-                    <div>
-                        <label class="fs-label" for="carpool-help-yes">Yes</label>
-                    </div>
-                </div>
-                <div class="fs-radio-field">
-                    <div class="fs-radio-wrapper">
-                        <input class="fs-radio" id="carpool-help-no" name="carpool-help" type="radio" value="no" />
-                    </div>
-                    <div>
-                        <label class="fs-label" for="carpool-help-no">No</label>
-                    </div>
-                </div>
-            </div>
-            <p class="fs-description">~1.5h drive</p>
-        </div>
-
-        <!-- If no car -->
-        <div id="no-car-fields" class="fs-field col-span-full hidden">
-            <label class="fs-label">Would you like us to add you to a carpool chat to help organize getting you to Belliefest from Montreal?</label>
-            <div class="fs-radio-group">
-                <div class="fs-radio-field">
-                    <div class="fs-radio-wrapper">
-                        <input class="fs-radio" id="need-carpool-yes" name="need-carpool" type="radio" value="yes" />
-                    </div>
-                    <div>
-                        <label class="fs-label" for="need-carpool-yes">Yes</label>
-                    </div>
-                </div>
-                <div class="fs-radio-field">
-                    <div class="fs-radio-wrapper">
-                        <input class="fs-radio" id="need-carpool-no" name="need-carpool" type="radio" value="no" />
-                    </div>
-                    <div>
-                        <label class="fs-label" for="need-carpool-no">No</label>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
 
@@ -317,12 +328,5 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        // Check authentication
-        if (sessionStorage.getItem('belliefest_auth') !== 'true') {
-            window.location.href = 'belliefest-2026-login.html';
-        }
-    </script>
 </body>
 </html>
