@@ -365,6 +365,7 @@ a:hover {
 .action-links {
     text-align: center;
     margin: 25px 0;
+    font-size:25px;
 }
 
 .action-links a {
@@ -374,7 +375,7 @@ a:hover {
     padding: 14px 50px;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     margin: 0 10px;
     box-shadow: 
         0 4px 15px rgba(233, 30, 99, 0.3),
