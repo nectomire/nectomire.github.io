@@ -61,28 +61,45 @@
             }
         }
 
-        // Validate the "which days" checkbox group on submit
+        // Require at least one checkbox in a named group; surface a native validation message on the first box
+        function validateCheckboxGroup(form, groupName, message) {
+            const boxes = form.querySelectorAll('input[name="' + groupName + '"]');
+            if (boxes.length === 0) return true;
+            const anyChecked = Array.from(boxes).some(cb => cb.checked);
+            if (anyChecked) {
+                boxes[0].setCustomValidity('');
+                return true;
+            }
+            boxes[0].setCustomValidity(message);
+            boxes[0].reportValidity();
+            // Clear the message as soon as any box in this group gets checked
+            boxes.forEach(cb => cb.addEventListener('change', function () {
+                boxes[0].setCustomValidity('');
+            }));
+            return false;
+        }
+
+        // Validate conditional checkbox groups on submit
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.querySelector('form.fs-form');
             if (!form) return;
 
             form.addEventListener('submit', function (e) {
                 const attendingYes = document.getElementById('attending-yes').checked;
+                const stayingYes = document.getElementById('staying-yes').checked;
                 const stayingNo = document.getElementById('staying-no').checked;
 
-                // Only enforce day-checkbox rule when the section is actually visible
-                if (attendingYes && stayingNo) {
-                    const dayBoxes = form.querySelectorAll('input[name="attending-days"]');
-                    const anyChecked = Array.from(dayBoxes).some(cb => cb.checked);
-                    if (!anyChecked) {
+                // Only enforce each rule when the relevant section is actually visible
+                if (attendingYes && stayingYes) {
+                    if (!validateCheckboxGroup(form, 'staying-nights', 'Please select at least one night.')) {
                         e.preventDefault();
-                        // Use the first checkbox to surface a native validation message
-                        dayBoxes[0].setCustomValidity('Please select at least one day.');
-                        dayBoxes[0].reportValidity();
-                        // Clear the message as soon as any box gets checked
-                        dayBoxes.forEach(cb => cb.addEventListener('change', function () {
-                            dayBoxes[0].setCustomValidity('');
-                        }));
+                        return;
+                    }
+                }
+                if (attendingYes && stayingNo) {
+                    if (!validateCheckboxGroup(form, 'attending-days', 'Please select at least one day.')) {
+                        e.preventDefault();
+                        return;
                     }
                 }
             });
